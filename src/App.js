@@ -11,7 +11,7 @@ function App() {
           <Route path="/checkout">
             <h1>Checkout</h1>
           </Route>
-          <Router path="/login"><h1>Login page</h1></Router>
+          <Route path="/login"><h1>Login page</h1></Route>
           <Route path="/"><h1>Top Page</h1></Route>
         </Switch>
       </div>
