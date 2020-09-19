@@ -37,8 +37,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
-  console.log("THE SECRET IS >>>", clientSecret);
-  console.log("user is?>>>", user);
+  // console.log("THE SECRET IS >>>", clientSecret);
+  // console.log("user is?>>>", user);
 
   const handleSubmit = async (event) => {
     // do all the stripe stuff
@@ -52,6 +52,8 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        // paymentIntent = payment confirmation
+
         db.collection("users")
           .doc(user?.uid)
           .collection("orders")
@@ -118,7 +120,6 @@ function Payment() {
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
-                {" "}
                 <CurrencyFormat
                   renderText={(value) => <h3>Order Total: {value}</h3>}
                   value={getBasketTotal(basket)}
