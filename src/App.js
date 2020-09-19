@@ -10,6 +10,7 @@ import { auth } from "./firebase";
 import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
 
 const promise = loadStripe(
   "pk_test_51HRezEEXPZBl4fvfI62kEEPfO61ZrtCgBVa7xIlsrJvxpgyhdyPHV6ekJx3sss7GBqiGiOjTAFaVZzXLURfgNFk000XjqLWUZR"
@@ -43,6 +44,10 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
+          <Route path="/orders">
+            <Header/>
+            <Orders />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />
